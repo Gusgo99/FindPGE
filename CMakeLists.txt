@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION "3.10.2")
+cmake_minimum_required(VERSION "3.12")
 
 project("FindPGE")
 
@@ -35,5 +35,5 @@ add_executable(
 # This will link to the correct libraries needed by each platform and also provide the include paths needed.
 target_link_libraries(${PROJECT_NAME} PRIVATE PGE)
 
-# If it becomes necessary to have a target with only the include paths, it is possible to use the variable PGE_INCLUDE_DIRS instead as in
+# If it becomes necessary to have a target with only the include paths, it is possible to use the variable PGE_INCLUDE_DIRS instead, as seem bellow:
 # target_include_directories(${PROJECT_NAME} PRIVATE ${PGE_INCLUDE_DIRS})
