@@ -41,7 +41,7 @@ The following cache variables may also be set:
 add_library(PGE INTERFACE)
 
 # Look for the header in the project directory and in the directory in PGE_ROOT
-find_path(PGE_CORE_INCLUDE_DIRS "olcPixelGameEngine.h" ${PROJECT_SOURCE_DIR}/* $ENV{PGE_ROOT}/*)
+find_path(PGE_CORE_INCLUDE_DIRS "olcPixelGameEngine.h" ${PROJECT_SOURCE_DIR}/*)
 
 set(PGE_INCLUDE_DIRS "")
 
