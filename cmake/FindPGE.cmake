@@ -18,12 +18,12 @@ Result Variables
 This will define the following variables:
 
 ``PGE_FOUND``
-  True if the system has the Foo library.
+  True if the PGE was found.
 ``PGE_VERSION``
   The version of the Pixel Game Engine header which was found.
-``Foo_INCLUDE_DIRS``
+``PGE_INCLUDE_DIRS``
   Include directories for the libraries the Pixel Game Engine uses. Optionally, if the header was found the path to it.
-``Foo_LIBRARIES``
+``PGE_LIBRARIES``
   Libraries needed to use the Pixel Game Engine.
 
 Cache Variables
