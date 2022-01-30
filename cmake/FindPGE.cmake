@@ -63,42 +63,35 @@ endif()
 set(PGE_LIBRARIES "")
 
 find_package(OpenGL)
-target_link_libraries(PGE INTERFACE ${OPENGL_LIBRARIES})
 set(PGE_LIBRARIES "${PGE_LIBRARIES};${OPENGL_LIBRARIES}")
-target_include_directories(PGE INTERFACE ${OPENGL_INCLUDE_DIRS})
 set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${OPENGL_INCLUDE_DIRS}")
 
 if(WIN32)
-	target_link_libraries(PGE INTERFACE user32 gdi32 gdiplus Shlwapi dwmapi stdc++fs)
 	set(PGE_LIBRARIES "${PGE_LIBRARIES};user32;gdi32;gdiplus;Shlwapi;dwmapi;stdc++fs")
 
 else()
 	find_package(PNG)
-	target_link_libraries(PGE INTERFACE ${PNG_LIBRARIES})
 	set(PGE_LIBRARIES "${PGE_LIBRARIES};${PNG_LIBRARIES}")
-	target_include_directories(PGE INTERFACE ${PNG_INCLUDE_DIRS})
 	set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${PNG_INCLUDE_DIRS}")
 	
 	if(APPLE)
 		find_package(GLUT)
 	
-		target_link_libraries(PGE INTERFACE ${GLUT_LIBRARY})
 		set(PGE_LIBRARIES "${PGE_LIBRARIES};${GLUT_LIBRARY}")
-		target_include_directories(PGE INTERFACE ${GLUT_INCLUDE_DIRS})
 		set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${GLUT_INCLUDE_DIRS}")
 
 		add_definitions("-DGL_SILENCE_DEPRECATION")
 
 	elseif(UNIX)
 		find_package(Threads)
-		target_link_libraries(PGE INTERFACE Threads::Threads)
 		set(PGE_LIBRARIES "${PGE_LIBRARIES};Threads::Threads")
 		
 		find_package(X11)
-		target_include_directories(PGE INTERFACE ${X11_INCLUDE_DIRS})
 		set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${X11_INCLUDE_DIRS}")
-		target_link_libraries(PGE INTERFACE ${X11_LIBRARIES})
 		set(PGE_LIBRARIES "${PGE_LIBRARIES};${X11_LIBRARIES}")
 
 	endif()
 endif()
+
+target_link_libraries(PGE INTERFACE ${PGE_LIBRARIES})
+target_include_directories(PGE INTERFACE ${PGE_INCLUDE_DIRS})
