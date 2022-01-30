@@ -87,6 +87,8 @@ else()
 		target_include_directories(PGE INTERFACE ${GLUT_INCLUDE_DIRS})
 		set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${GLUT_INCLUDE_DIRS}")
 
+		add_definitions("-DGL_SILENCE_DEPRECATION")
+
 	elseif(UNIX)
 		find_package(Threads)
 		target_link_libraries(PGE INTERFACE Threads::Threads)
