@@ -67,7 +67,7 @@ set(PGE_LIBRARIES "${PGE_LIBRARIES};${OPENGL_LIBRARIES}")
 set(PGE_INCLUDE_DIRS} "${PGE_INCLUDE_DIRS};${OPENGL_INCLUDE_DIRS}")
 
 if(WIN32)
-	set(PGE_LIBRARIES "${PGE_LIBRARIES};user32;gdi32;gdiplus;Shlwapi;dwmapi;stdc++fs")
+	set(PGE_LIBRARIES "${PGE_LIBRARIES};user32;gdi32;gdiplus;Shlwapi;dwmapi")
 
 else()
 	find_package(PNG)
