@@ -37,3 +37,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE PGE)
 
 # If it becomes necessary to have a target with only the include paths, it is possible to use the variable PGE_INCLUDE_DIRS instead, as seem bellow:
 # target_include_directories(${PROJECT_NAME} PRIVATE ${PGE_INCLUDE_DIRS})
+
+# To make sure VS executes the program at the right directory:
+set_property(
+    TARGET ${PROJECT_NAME} 
+    PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+)
